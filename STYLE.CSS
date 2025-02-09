@@ -1,0 +1,522 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    background-color: #f5f5f5; /* Neutral background for better contrast */
+    color: #333;
+}
+
+/* Navbar Styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #001f54;
+    color: white;
+    position: fixed; /* Sticky and stays on top */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, padding 0.3s; /* Smooth effect on scroll */
+}
+
+nav.scrolled {
+    background-color: rgba(0, 31, 84, 0.9); /* Slight transparency on scroll */
+    padding: 5px 20px; /* Reduce padding for a compact look */
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+nav .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav .logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px); /* Subtle hover effect */
+}
+
+/* Home Section */
+#home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://pfst.cf2.poecdn.net/base/image/703d31c726f6de72e43bd0c108f5987bd8797f733ef7e46b6c08fa3d574f6d46?w=1024&h=768&pmaid=283900401) no-repeat center center/cover;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    position: relative;
+}
+
+#home img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    filter: brightness(70%);
+}
+
+#home h1 {
+    font-size: 40px;
+    z-index: 1;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Keyframe for fade-in animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+/* Services Section */
+#services {
+    padding: 50px 20px;
+background: url(https://pfst.cf2.poecdn.net/base/image/01a67f71b86eba4a4a4f03485e7adddcd33253ee9a1208c15512c9ecb637dc0c?w=1024&h=768&pmaid=283903760);
+text-align: center;
+  
+}
+
+#services h2 {
+    font-size: 32px;
+    color: rgba(7, 0, 0, 0.235);
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.service-cards {
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: rgb(4, 0, 0);
+    border: 1px solid #070000;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+    border: 1px solid rgb(8, 163, 240);
+}
+
+.service-card img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 2px solid rgb(23, 219, 253);
+}
+
+.service-card h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Scroll effect for service cards */
+.service-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect for service cards */
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    nav ul li {
+        margin-left: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    #home h1 {
+        font-size: 30px;
+    }
+
+    #services h2 {
+        font-size: 28px;
+    }
+
+    .service-card h3 {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Basic styles for team container *//* Basic styles for team section */
+#team {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #04656e;
+}
+
+#h1team {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333333;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.team-slider {
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-member {
+    background: #030010;
+    padding: 20px;
+    border-radius: 15px;
+    width: 250px; /* Card width */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+    /* Optional: for 3D effect */
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.team-member h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.team-member .role {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.team-member:hover {
+    transform: translateY(-10px) rotateY(10deg);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.team-member:hover img {
+    transform: scale(1.1);
+}
+
+.team-slider-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .team-slider {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .team-member {
+        width: 80%; /* Reduce width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #h1team {
+        font-size: 2.5em;
+    }
+    .team-slider {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .team-member {
+        width: 100%; /* Full width on very small screens */
+    }
+}
+
+
+
+
+#news{
+ 
+background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=80&w=1927&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    text-align: center;
+  
+
+    padding: 60px 10%;
+    background-color: #086368;
+    text-align: center;
+}
+
+#news h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Container for the Cards */
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 70px;
+    margin-bottom: 40px;
+}
+
+/* Individual Card Styling */
+.service-card {
+    background-color: #0f0f0f;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Card Hover Effects */
+.service-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-card:hover img {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #news {
+        padding: 60px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    #news h2 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #news {
+        padding: 50px 10px;
+    }
+    #news h2 {
+        font-size: 2em;
+    }
+}
+
+
+/* Base styling for Contact Us Section */
+#contact-us {
+    padding: 60px 10%;
+    background-color: #0f7c79;
+    background-image: url("https://img.freepik.com/free-photo/good-bye-sun_1361-180.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #09afd4;
+    text-align: center;
+}
+
+#contact-us h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: rgb(43, 180, 139);
+    font-weight: 700;
+}
+
+/* Styling the form */
+.contact-form {
+    display: grid;
+    grid-gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Form Group Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input Fields Styling */
+input[type="tel"], input[type="email"], select, textarea {
+    padding: 10px;
+    font-size: 1.1em;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+}
+
+input[type="tel"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    border-color: rgb(255, 0, 0);
+}
+
+/* Button Styling */
+.submit-btn {
+    padding: 12px 20px;
+    background-color: yellow;
+    color: #333;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #f1c40f;
+}
+
+
+
+
+
+#team{
+    background-image: url(https://t3.ftcdn.net/jpg/00/73/08/22/360_F_73082224_ay4Tus31QNHNmGSIty53ZE6mBrBc47cV.jpg); 
+    type="image/x-icon" style="border-radius: 50%;">;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
