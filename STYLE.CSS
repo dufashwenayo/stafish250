@@ -8,10 +8,10 @@
 
 /* Body Styling */
 body {
-    font-family: 'Poppins', sans-serif; /* Modern font */
-    scroll-behavior: smooth; /* Smooth scrolling effect */
-    background-color: #f5f5f5; /* Neutral background for better contrast */
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 /* Navbar Styling */
@@ -20,19 +20,19 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #001f54;
-    color: white;
-    position: fixed; /* Sticky and stays on top */
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, padding 0.3s; /* Smooth effect on scroll */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, padding 0.3s;
 }
 
 nav.scrolled {
-    background-color: rgba(0, 31, 84, 0.9); /* Slight transparency on scroll */
-    padding: 5px 20px; /* Reduce padding for a compact look */
+    background-color: #292929;
+    padding: 5px 20px;
 }
 
 nav .logo {
@@ -63,15 +63,15 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color:rgb(12, 0, 0);
     font-size: 16px;
     font-weight: 500;
     transition: color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ffcc00;
-    transform: translateY(-2px); /* Subtle hover effect */
+    color: #ff9800;
+    transform: translateY(-2px);
 }
 
 /* Home Section */
@@ -80,8 +80,8 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(https://pfst.cf2.poecdn.net/base/image/703d31c726f6de72e43bd0c108f5987bd8797f733ef7e46b6c08fa3d574f6d46?w=1024&h=768&pmaid=283900401) no-repeat center center/cover;
-    color: rgb(0, 0, 0);
+    background: url(https://pfst.cf2.poecdn.net/base/image/1dfcae44a405bee9dc74acf129660a74d5dfc3ba97933054762619b23defb183?w=1024&h=768&pmaid=284400680) no-repeat center center/cover;
+    color: #b4fac9;
     text-align: center;
     position: relative;
 }
@@ -91,7 +91,7 @@ nav ul li a:hover {
     height: auto;
     object-fit: cover;
     position: absolute;
-    filter: brightness(70%);
+    filter: brightness(50%);
 }
 
 #home h1 {
@@ -112,24 +112,18 @@ nav ul li a:hover {
     }
 }
 
-
-
-
-
-
-
-
 /* Services Section */
 #services {
     padding: 50px 20px;
-background: url(https://pfst.cf2.poecdn.net/base/image/01a67f71b86eba4a4a4f03485e7adddcd33253ee9a1208c15512c9ecb637dc0c?w=1024&h=768&pmaid=283903760);
-text-align: center;
-  
+    background: url(https://pfst.cf2.poecdn.net/base/image/28f95fc4edc7e3b81d50b9119bfad6c7d020515aaea3d48805c1ca7412d2d3d7?w=1024&h=768&pmaid=284402956);
+    background-size: cover;
+    text-align: center;
+    color: #e0e0e0;
 }
 
 #services h2 {
     font-size: 32px;
-    color: rgba(7, 0, 0, 0.235);
+    color: #ff9800;
     margin-bottom: 30px;
     animation: slideIn 1s ease-in-out;
 }
@@ -148,20 +142,19 @@ text-align: center;
 .service-cards {
     overflow-y: hidden;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .service-card {
-    background: rgb(4, 0, 0);
-    border: 1px solid #070000;
+    background: #1f1f1f;
+    border: 1px solid #333;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     padding: 10px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-    border: 1px solid rgb(8, 163, 240);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card img {
@@ -169,30 +162,23 @@ text-align: center;
     height: auto;
     border-radius: 8px;
     margin-bottom: 15px;
-    border: 2px solid rgb(23, 219, 253);
+    border: 2px solid #ff9800;
 }
 
 .service-card h3 {
     font-size: 20px;
-    color: #333;
+    color: #ff9800;
     margin-bottom: 10px;
 }
 
 .service-card p {
     font-size: 14px;
-    color: #666;
+    color: #e0e0e0;
 }
 
-/* Scroll effect for service cards */
-.service-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Hover effect for service cards */
 .service-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive Adjustments */
@@ -218,24 +204,19 @@ text-align: center;
     }
 }
 
-
-
-
-
-
-
-
-/* Basic styles for team container *//* Basic styles for team section */
+/* Basic styles for team section */
 #team {
     text-align: center;
     padding: 50px 0;
-    background-color: #04656e;
+    background-color: #1b1b1b;
+    background-image: url(https://t3.ftcdn.net/jpg/00/73/08/22/360_F_73082224_ay4Tus31QNHNmGSIty53ZE6mBrBc47cV.jpg);
+    color: #e0e0e0;
 }
 
 #h1team {
     font-size: 2em;
     margin-bottom: 30px;
-    color: #333333;
+    color: #ff9800;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -256,15 +237,13 @@ text-align: center;
 }
 
 .team-member {
-    background: #030010;
+    background: #292929;
     padding: 20px;
     border-radius: 15px;
-    width: 250px; /* Card width */
+    width: 250px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    perspective: 1000px;
-    /* Optional: for 3D effect */
 }
 
 .team-member img {
@@ -276,35 +255,28 @@ text-align: center;
 
 .team-member h3 {
     font-size: 1.2em;
-    color: #333;
+    color: #ff9800;
     margin: 10px 0;
 }
 
 .team-member .role {
     font-size: 1em;
-    color: #777;
+    color: #e0e0e0;
     margin-bottom: 10px;
 }
 
 .team-member p {
     font-size: 0.9em;
-    color: #555;
+    color: #b0b0b0;
 }
 
 .team-member:hover {
     transform: translateY(-10px) rotateY(10deg);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 .team-member:hover img {
     transform: scale(1.1);
-}
-
-.team-slider-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -313,7 +285,7 @@ text-align: center;
         gap: 30px;
     }
     .team-member {
-        width: 80%; /* Reduce width on smaller screens */
+        width: 80%;
     }
 }
 
@@ -326,32 +298,26 @@ text-align: center;
         gap: 15px;
     }
     .team-member {
-        width: 100%; /* Full width on very small screens */
+        width: 100%;
     }
 }
 
-
-
-
-#news{
- 
-background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=80&w=1927&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+#news {
+    background: url(https://pfst.cf2.poecdn.net/base/image/a671b101be9f39e9beb450e7ca08157a14422ae3828f4647fc0fa7eaa6e3c25e?w=1024&h=768&pmaid=284663669);
+    background-size: cover;
     text-align: center;
-  
-
     padding: 60px 10%;
-    background-color: #086368;
-    text-align: center;
+    background-color: #1f1f1f;
+    color: #e0e0e0;
 }
 
 #news h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: #333;
+    color: #ff9800;
     font-weight: 700;
 }
 
-/* Container for the Cards */
 .service-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -359,12 +325,11 @@ background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=8
     margin-bottom: 40px;
 }
 
-/* Individual Card Styling */
 .service-card {
-    background-color: #0f0f0f;
+    background-color: #292929;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     text-align: center;
@@ -380,10 +345,9 @@ background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=8
     transition: transform 0.3s ease;
 }
 
-/* Card Hover Effects */
 .service-card:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(82, 236, 113, 0.5);
 }
 
 .service-card:hover img {
@@ -392,14 +356,14 @@ background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=8
 
 .service-card h3 {
     font-size: 1.5em;
-    color: #333;
+    color: #55ff00 black;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
 .service-card p {
     font-size: 1em;
-    color: #777;
+    color: #edca00;
 }
 
 /* Responsive Design */
@@ -424,26 +388,24 @@ background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=8
     }
 }
 
-
 /* Base styling for Contact Us Section */
 #contact-us {
     padding: 60px 10%;
-    background-color: #0f7c79;
-    background-image: url("https://img.freepik.com/free-photo/good-bye-sun_1361-180.jpg");
+    background-color: #1f1f1f;
+    background-image: url("https://pfst.cf2.poecdn.net/base/image/7bd197a58d7e72b13d4a659033adca55958991ab24366d338ad6cac683c3eb07?w=1024&h=768&pmaid=284664064");
     background-size: cover;
     background-position: center;
-    color: #09afd4;
+    color: #dc0707;
     text-align: center;
 }
 
 #contact-us h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
-    color: rgb(43, 180, 139);
+    color: #d41717;
     font-weight: 700;
 }
 
-/* Styling the form */
 .contact-form {
     display: grid;
     grid-gap: 30px;
@@ -452,71 +414,57 @@ background: url(https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=8
     text-align: left;
 }
 
-/* Form Group Styling */
 .form-group {
     display: flex;
     flex-direction: column;
 }
 
-/* Input Fields Styling */
-input[type="tel"], input[type="email"], select, textarea {
-    padding: 10px;
-    font-size: 1.1em;
-    margin-top: 8px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #333;
-    outline: none;
+/* About Our Service Section */
+#about-service {
+    padding: 50px 20px;
+    background-color: #121212;
+    background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1920&auto=format&fit=crop");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #e0e0e0;
 }
 
-input[type="tel"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
-    border-color: rgb(255, 0, 0);
+#about-service h2 {
+    font-size: 2.5em;
+    color: #ff9800;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-/* Button Styling */
-.submit-btn {
-    padding: 12px 20px;
-    background-color: yellow;
-    color: #333;
+#about-service p {
     font-size: 1.2em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
 }
 
-.submit-btn:hover {
-    background-color: #f1c40f;
+#about-service a {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #ff9800;
+    text-decoration: none;
+    background-color: #292929;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
+#about-service a:hover {
+    background-color: #ff9800;
+    color: #292929;
+    transform: scale(1.05);
+}
 
-
-
-
-#team{
-    background-image: url(https://t3.ftcdn.net/jpg/00/73/08/22/360_F_73082224_ay4Tus31QNHNmGSIty53ZE6mBrBc47cV.jpg); 
-    type="image/x-icon" style="border-radius: 50%;">;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Responsive Adjustments for About Section */
+@media (max-width: 768px) {
+    #about-service h2 {
+        font-size: 2em;
+    }
+    #about-service p {
+        font-size: 1em;
+    }
+}
