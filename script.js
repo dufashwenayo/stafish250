@@ -29,3 +29,23 @@ window.addEventListener("scroll", () => {
 //   team
 
 
+function checkInput(input) {
+  // Check if the input field is filled
+  const checkbox = document.getElementById(input.id + 'Done');
+  checkbox.checked = input.value.trim() !== '';
+}
+
+function toggleNextField(checkbox, nextFieldId) {
+  // Show the next field if the checkbox is checked
+  const nextField = document.getElementById(nextFieldId + 'Field');
+  if (checkbox.checked) {
+      nextField.style.display = 'block';
+  } else {
+      nextField.style.display = 'none';
+      // Optionally clear the next field's value
+      document.getElementById(nextFieldId).value = '';
+      // Also uncheck the corresponding checkbox
+      const nextCheckbox = document.getElementById(nextFieldId + 'Done');
+      nextCheckbox.checked = false;
+  }
+}
