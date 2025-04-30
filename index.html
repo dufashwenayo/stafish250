@@ -1,318 +1,1445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Starfish Group</title>
-  <link rel="stylesheet" href="STYLE.CSS">
-  <link rel="shortcut icon" href="https://i.ibb.co/5x5gLwKR/image.png" type="image/x-icon" style="border-radius: 50%;">
+  <link rel="shortcut icon" href="https://i.ibb.co/5x5gLwKR/image.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <style>
+    /* Modern CSS with Neon Starfish Theme */
+    :root {
+      --primary: #5D5CDE;
+      --primary-glow: rgba(93, 92, 222, 0.6);
+      --accent-cyan: #00e5ff;
+      --accent-purple: #d900ff;
+      --accent-teal: #00ffd5;
+      --dark-bg: #0a0a0a;
+      --dark-surface: #151515;
+      --dark-surface-2: #1d1d1d;
+      --dark-card: rgba(29, 29, 29, 0.8);
+      --text-light: #f8f8f8;
+      --text-muted: #b0b0b0;
+      --gradient-glow: linear-gradient(135deg, var(--accent-purple), var(--primary), var(--accent-cyan));
+      --card-blur: blur(10px);
+      --header-height: 70px;
+      --z-fixed: 100;
+      --body-font: 'Montserrat', sans-serif;
+      --title-font: 'Orbitron', sans-serif;
+    }
+
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-surface);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-glow);
+    }
+
+    /* Body Styling */
+    body {
+      font-family: var(--body-font);
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(93, 92, 222, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 60%, rgba(0, 229, 255, 0.05) 0%, transparent 20%);
+    }
+
+    .dark {
+      --dark-bg: #050505;
+      --dark-surface: #101010;
+      --dark-surface-2: #181818;
+      --dark-card: rgba(25, 25, 25, 0.8);
+    }
+
+    /* Typography Enhancement */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--title-font);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-cyan);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Layout utilities */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 8rem 0 4rem;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text-light);
+      position: relative;
+      font-family: var(--title-font);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gradient-glow);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Navbar Styling */
+    .header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: var(--z-fixed);
+      background-color: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: .4s;
+      border-bottom: 1px solid rgba(93, 92, 222, 0.2);
+    }
+
+    .nav {
+      height: var(--header-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .header.scrolled {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      background-color: rgba(10, 10, 10, 0.95);
+    }
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+
+    .nav__logo-img {
+      width: 40px;
+      filter: drop-shadow(0 0 8px var(--primary-glow));
+      transition: transform 0.3s;
+    }
+
+    .nav__logo-img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .nav__logo-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-family: var(--title-font);
+      background: var(--gradient-glow);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 10px rgba(93, 92, 222, 0.5);
+    }
+
+    .nav__toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+
+    .nav__list {
+      display: flex;
+      column-gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav__link {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding: 0.3rem 0;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: var(--gradient-glow);
+      transition: width 0.3s ease;
+    }
+
+    .nav__link:hover {
+      color: var(--accent-cyan);
+    }
+
+    .nav__link:hover::after {
+      width: 100%;
+    }
+
+    .active-link {
+      color: var(--accent-cyan);
+    }
+
+    .active-link::after {
+      width: 100%;
+    }
+
+    /* Home Section */
+    .home {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--header-height);
+    }
+
+    .home::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .home-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4) saturate(1.4);
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+
+    .home:hover .home-img {
+      transform: scale(1.08);
+    }
+
+    .home__container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      row-gap: 2rem;
+    }
+
+    .home__title {
+      font-size: 3.5rem;
+      text-align: center;
+      color: var(--text-light);
+      text-shadow: 0 0 15px rgba(93, 92, 222, 0.8);
+      transform: translateY(0);
+      opacity: 1;
+      animation: floatText 5s ease-in-out infinite;
+    }
+
+    .home__subtitle {
+      font-size: 1.2rem;
+      color: var(--accent-teal);
+      text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
+      max-width: 650px;
+    }
+
+    .home__buttons {
+      display: flex;
+      column-gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: 0.3s;
+      background: var(--gradient-glow);
+      color: var(--text-light);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4), 0 0 15px rgba(93, 92, 222, 0.5);
+    }
+
+    .button-outline {
+      background: transparent;
+      border: 2px solid var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    .button-outline:hover {
+      background: var(--accent-cyan);
+      color: var(--dark-bg);
+    }
+
+    @keyframes floatText {
+      0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 15px rgba(93, 92, 222, 0.8);
+      }
+      50% {
+        transform: translateY(-15px);
+        text-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
+      }
+    }
+
+    /* Services Section */
+    .services {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://pfst.cf2.poecdn.net/base/image/28f95fc4edc7e3b81d50b9119bfad6c7d020515aaea3d48805c1ca7412d2d3d7?w=1024&h=768) no-repeat center/cover;
+      filter: brightness(0.2) saturate(1.2);
+      z-index: -1;
+    }
+
+    .services__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service__card {
+      background: var(--dark-card);
+      backdrop-filter: var(--card-blur);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .service__card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, 
+        rgba(93, 92, 222, 0.1), 
+        rgba(0, 229, 255, 0.05));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service__card:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(93, 92, 222, 0.3);
+    }
+
+    .service__card:hover::before {
+      opacity: 1;
+    }
+
+    .service__img {
+      width: 70%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 0 auto 1.5rem;
+      border: 2px solid transparent;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      background-image: 
+        linear-gradient(var(--dark-surface-2), var(--dark-surface-2)),
+        var(--gradient-glow);
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.95);
+      display: block;
+    }
+
+    .service__card:hover .service__img {
+      transform: scale(1.05);
+      filter: brightness(1.1) contrast(1.05);
+    }
+
+    .service__title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      text-align: center;
+    }
+
+    .service__description {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Team Section */
+    .team {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark-bg);
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(93, 92, 222, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 229, 255, 0.1) 0%, transparent 30%);
+      z-index: -1;
+    }
+
+    .team__container {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .team__member {
+      width: 280px;
+      background: var(--dark-surface-2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team__member::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 100px;
+      height: 100px;
+      background: var(--gradient-glow);
+      filter: blur(30px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .team__member:hover::before {
+      opacity: 0.5;
+    }
+
+    .team__member:hover {
+      transform: translateY(-15px) rotateZ(2deg);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(93, 92, 222, 0.2);
+    }
+
+    .team__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+      filter: brightness(0.95) contrast(1.1);
+      border: 2px solid transparent;
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      background-image: 
+        linear-gradient(var(--dark-surface-2), var(--dark-surface-2)),
+        var(--gradient-glow);
+    }
+
+    .team__member:hover .team__img {
+      transform: scale(1.08);
+      filter: brightness(1.05) contrast(1.1);
+    }
+
+    .team__name {
+      margin-top: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+    }
+
+    .team__role {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .team__description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .team__contact {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--accent-teal);
+    }
+
+    .team__social {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .team__social-link {
+      display: inline-flex;
+      background: var(--dark-surface);
+      color: var(--text-light);
+      padding: 0.5rem;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .team__social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .profile-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+      color: white;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .profile-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+    }
+
+    /* News Section */
+    .news {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://pfst.cf2.poecdn.net/base/image/a671b101be9f39e9beb450e7ca08157a14422ae3828f4647fc0fa7eaa6e3c25e?w=1024&h=768) no-repeat center/cover;
+      filter: brightness(0.15) saturate(1.2);
+      z-index: -1;
+    }
+
+    .news__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .news__card {
+      background: var(--dark-card);
+      backdrop-filter: var(--card-blur);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .news__card:hover {
+      transform: translateY(-10px);
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(93, 92, 222, 0.3);
+    }
+
+    .news__header {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .news__title {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0;
+    }
+
+    .news__content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news__img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      transition: transform 0.4s ease;
+    }
+
+    .news__card:hover .news__img {
+      transform: scale(1.05);
+    }
+
+    .news__text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .news__note {
+      font-size: 0.85rem;
+      color: var(--accent-teal);
+      margin-top: 0.5rem;
+    }
+
+    .btn-link {
+      align-self: flex-start;
+      padding: 0.75rem 1.25rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+      color: white;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-top: auto;
+    }
+
+    .btn-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+    }
+
+    /* Contact Section */
+    .contact {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(https://pfst.cf2.poecdn.net/base/image/7bd197a58d7e72b13d4a659033adca55958991ab24366d338ad6cac683c3eb07?w=1024&h=768) no-repeat center/cover;
+      filter: brightness(0.15) saturate(1.2);
+      z-index: -1;
+    }
+
+    .contact__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact__form {
+      width: 100%;
+      max-width: 800px;
+      background: var(--dark-card);
+      backdrop-filter: var(--card-blur);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .contact__form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact__label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    .contact__input,
+    .contact__textarea {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(18, 18, 18, 0.8);
+      border: 1px solid rgba(93, 92, 222, 0.2);
+      border-radius: 8px;
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact__input:focus,
+    .contact__textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(93, 92, 222, 0.2);
+    }
+
+    .contact__small {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(93, 92, 222, 0.5);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--dark-surface);
+      padding: 4rem 0 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer__container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__logo-img {
+      width: 40px;
+    }
+
+    .footer__logo-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: var(--title-font);
+      color: var(--text-light);
+    }
+
+    .footer__description {
+      margin-bottom: 2rem;
+      color: var(--text-muted);
+    }
+
+    .footer__social {
+      display: flex;
+      column-gap: 1rem;
+    }
+
+    .footer__social-link {
+      display: inline-flex;
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      font-size: 1.25rem;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .footer__social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .footer__title {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-cyan);
+    }
+
+    .footer__links {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.75rem;
+    }
+
+    .footer__link {
+      color: var(--text-muted);
+      transition: 0.3s;
+    }
+
+    .footer__link:hover {
+      color: var(--accent-cyan);
+      transform: translateX(5px);
+    }
+
+    .footer__form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      display: flex;
+      column-gap: 0.5rem;
+    }
+
+    .footer__input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(18, 18, 18, 0.8);
+      border: none;
+      border-radius: 0.25rem;
+      color: var(--text-light);
+    }
+
+    .footer__button {
+      padding: 0.75rem;
+      background: var(--primary);
+      border: none;
+      border-radius: 0.25rem;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .footer__button:hover {
+      background: var(--accent-cyan);
+    }
+
+    .footer__copy {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Animated Neon Elements */
+    .neon-glow {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      filter: blur(40px);
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .glow-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-purple);
+      top: 10%;
+      left: 5%;
+      animation-delay: 0s;
+    }
+
+    .glow-2 {
+      width: 200px;
+      height: 200px;
+      background: var(--primary);
+      bottom: 5%;
+      right: 10%;
+      animation-delay: -3s;
+    }
+
+    .glow-3 {
+      width: 250px;
+      height: 250px;
+      background: var(--accent-cyan);
+      bottom: 20%;
+      left: 20%;
+      animation-delay: -6s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.3;
+      }
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 968px) {
+      :root {
+        --header-height: 60px;
+      }
+
+      .home__title {
+        font-size: 2.75rem;
+      }
+
+      .services__container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .team__container {
+        gap: 1.5rem;
+      }
+
+      .news__container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav {
+        height: var(--header-height);
+        justify-content: space-between;
+        padding: 0 1.5rem;
+      }
+
+      .nav__logo-img {
+        width: 36px;
+      }
+
+      .nav__toggle {
+        display: block;
+      }
+
+      .nav__menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: var(--dark-bg);
+        width: 100%;
+        padding: 4rem 0;
+        border-radius: 0 0 1.5rem 1.5rem;
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+        transition: 0.4s;
+        z-index: calc(var(--z-fixed) - 1);
+      }
+
+      .nav__list {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 2.5rem;
+      }
+
+      .nav__link {
+        font-size: 1.1rem;
+      }
+
+      /* Show menu */
+      .show-menu {
+        top: 0;
+      }
+
+      .section {
+        padding: 6rem 0 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .home__title {
+        font-size: 2.25rem;
+      }
+
+      .home__subtitle {
+        font-size: 1rem;
+      }
+
+      .home__buttons {
+        column-gap: 1rem;
+        row-gap: 1rem;
+      }
+
+      .button {
+        padding: 0.75rem 1.25rem;
+      }
+
+      .contact__form {
+        padding: 1.5rem;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .home__title {
+        font-size: 1.75rem;
+      }
+
+      .service__card {
+        padding: 1.5rem;
+      }
+
+      .team__member {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .contact__form {
+        padding: 1.25rem;
+      }
+
+      .footer__container {
+        gap: 2rem;
+      }
+    }
+
+    @media screen and (max-width: 350px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .home__title {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        padding: 0.75rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">
-  <link rel="shortcut icon" href="https://i.ibb.co/5x5gLwKR/image.png" type="image/x-icon" style="border-radius: 50%;">
-      <img src="https://i.ibb.co/5x5gLwKR/image.png" alt="Logo" style="border-radius: 0%;">
-      <span>Starfish Group</span>
-    </div>
-    <ul>
-      <li><a href="#home" class="nav-link">Home 🏠</a></li>
-      <li><a href="#services" class="nav-link">Services 💡</a></li>
-      <li><a href="#team">Team 👨‍👩‍👧‍👦</a></li>
-      <li><a href="#news">News & Events 📢</a></li>
-      <li><a href="#contact-us">Contact Us 📞</a></li>
-    </ul>
-  </nav>
+  <!-- Background Glow Effects -->
+  <div class="neon-glow glow-1"></div>
+  <div class="neon-glow glow-2"></div>
+  <div class="neon-glow glow-3"></div>
 
-  <!-- Home Section -->
-  <section id="home">
-    <div class="home-content">
-      <h1 style="color: BLACK(138, 244, 85); font-weight: bold; font-family: 'bold"
-       </header>
-        
-      </h1>
-    </div>
-  </section>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <img src="https://i.ibb.co/5x5gLwKR/image.png" alt="Starfish Logo" class="nav__logo-img">
+        <span class="nav__logo-text">Starfish Group</span>
+      </a>
 
-  <!-- Services Section -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="service-cards">
-       
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+          <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+          <li class="nav__item"><a href="#team" class="nav__link">Team</a></li>
+          <li class="nav__item"><a href="#news" class="nav__link">News</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class='bx bx-menu'></i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section class="home section" id="home">
+      <img src="https://pfst.cf2.poecdn.net/base/image/a671b101be9f39e9beb450e7ca08157a14422ae3828f4647fc0fa7eaa6e3c25e?w=1024&h=768" alt="Starfish Background" class="home-img">
       
+      <div class="home__container container">
+        <h1 class="home__title">Welcome to Starfish Group</h1>
+        <p class="home__subtitle">Innovative technology solutions for a digital world. We create, develop, and transform ideas into reality.</p>
+        
+        <div class="home__buttons">
+          <a href="#services" class="button">Our Services</a>
+          <a href="#contact" class="button button-outline">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+      <h2 class="section-title">Our Services</h2>
+
+      <div class="services__container container">
+        <!-- Service 1 -->
+        <div class="service__card">
+          <img src="https://i.ibb.co/Csvw1Ypq/image.png" alt="Website Development" class="service__img">
+          <h3 class="service__title">Website Development</h3>
+          <p class="service__description">Expert website development and hosting services, delivering custom, reliable, and scalable solutions to bring your online presence to life.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service__card">
+          <img src="https://i.ibb.co/FbVC7s8S/image.png" alt="Computer Maintenance" class="service__img">
+          <h3 class="service__title">Computer Maintenance</h3>
+          <p class="service__description">Fast and reliable computer maintenance, ensuring optimal performance and protection for your devices and systems.</p>
+        </div>
+
         <!-- Service 3 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://i.ibb.co/CKmbzDy2/image.png" alt="Service 3">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">IREMBO💁</h3>
-        <p>Starfish, we offer seamless Irembo services, helping you access government services online quickly and efficiently 🌐</p>
-      </div>
-      <!-- Service 3 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://i.ibb.co/4wgz595F/image.png" alt="Service 3">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">PHONE APPS INSTALLATION📱</h3>
-        <p>Starfish, we provide quick and easy phone app installation 📱, ensuring your devices are up and running with the latest apps you need 🔧</p>
-      </div>
-      <!-- Service 4 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://salesqueen.org/wp-content/uploads/2022/05/graphic-designing-services.png" alt="Service 4">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">GRAPHIC DESIGN📸</h3>
-        <p>Start by Starfish, we offer creative and professional graphic design services 🎨, crafting unique visuals that elevate your brand identity and message ✨</p>
-      </div>
-      <!-- Service 4 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://pfst.cf2.poecdn.net/base/image/2eaa668ebd3a03bdb1330288ea52533d8506fdab7650f97c3b9edc8a144662d1?w=1024&h=768&pmaid=283883771" alt="Service 4">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">Profit-Driven Trading Signals You Can Trust</h3>
-        <p>Starfish provides professional and efficient network installation solutions tailored to your business needs. From setup to optimization, we ensure seamless connectivity for your team.</p>
-      </div>
-      <!-- Service 4 -->
-       <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://pfst.cf2.poecdn.net/base/image/3b37f472d990b51297ad0d221296ee31c468b1c4422f27692d5e507cb0e86d7f?w=1024&h=768&pmaid=283885900" alt="Service 4">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">Starfish Culinary Excellence: Expert Cooking, Every Time</h3>
-        <p>Experience cooking at its finest with Starfish. Our team of skilled chefs delivers tender, flavorful meats and delectable sauces, making every dish an unforgettable masterpiece. Cooking isn’t just a service—it’s our passion..</p>
-      </div>
-       <!-- Service 4 -->
-       <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://pfst.cf2.poecdn.net/base/image/703d31c726f6de72e43bd0c108f5987bd8797f733ef7e46b6c08fa3d574f6d46?w=1024&h=768&pmaid=283900401" alt="Service 4">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">Reliable Connectivity 🏠Everywhere🌐📶</h3>
-        <p>Starfish delivers real-time, accurate trading signals that empower you to make confident decisions in the forex, stocks, and crypto markets. Ride the waves of success with Starfish—your gateway to consistent profits.</p>
-      </div>
-      <!-- Service 1 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://i.ibb.co/Csvw1Ypq/image.png" alt="Service 1">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">WEBSITE DEV AND HOSTING <br></h3>
-        <p> Starfish, we provide expert website development and hosting services, delivering custom, reliable, and scalable solutions to bring your online presence to life..</p>
-      </div>
-      <!-- Service 2 -->
-      <div class="service-card" style="background-color: rgb(3, 71, 71);">
-        <img src="https://i.ibb.co/FbVC7s8S/image.png" alt="Service 2">
-        <h3 style="color: rgb(255, 255, 255);font-weight: bold;">COMPUTER MAINTAINANCE 💻🔧</h3>
-        <p> Starfish, we offer fast, reliable computer maintenance 🖥️, ensuring optimal performance and protection for your devices 🔧</p>
-      </div>
-    </div>
-    <div class="service-cards">
-      
-    </div>
-  </section>
-
- <!-- Team Section -->
-<section id="team" ><br>
-  <h1 style="color: yellow;">Meet Our Team</h1>
-
-  <br><br>
-    <div class="team-container">
-      
-      <!-- Slider container with arrows -->
-      <div class="team-slider-wrapper">
-        <!-- Left arrow -->
-       
-  
-        <!-- Team Slider -->
-        <div class="team-slider" id="teamSlider">
-          <div class="team-member">
-            <img src="https://i.ibb.co/RTgPSg0s/image.png" alt="Team Member 1">
-            <h3>Dufashwenayo Patrick</h3>
-            <p class="role">CEO-DIRECTOR💰<br>
-              +250799379271
-            </p>
-            
-            <p> Owner and Director of Starfish, is an IT expert specializing in web development, software design, and innovative digital solutions.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="https://www.instagram.com/du_fashwenayo/">View more</a></p>
-          </div>
-          <div class="team-member">
-            <img src="https://i.ibb.co/C32GVMhX/image.png" alt="https://kejoo-portifolio.wuaze.com">
-            <h3>ISHIMWE NSHUTI elyse</h3>
-            <p class="role">WEB developer🌐 <BR>FULL STACK</BR></p>
-            <p>Ishimwe Nshuti Elyse is a highly accomplished web developer renowned for designing cutting-edge, responsive, and impactful digital solutions that drive results.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="https://kejoo-portifolio.wuaze.com">View more</a></p>
-          </div>
-          <div class="team-member">
-            <img src="https://i.ibb.co/Nc14RR9/image.png" alt="Team Member 3">
-            <h3>ITURUSHURUKUNDO HIRWA Lionel🤝</h3>
-            <p class="role">Field and Hardware Maintenance Manager</p>
-            <p>Iturushurukundo Hirwa Lionel, a highly skilled Deputy Chief, excels in field operations and computer hardware maintenance, ensuring top-tier performance and reliable support for all systems.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="http://lio-tech.onrender.com/">View more</a></p>
-          </div>
-          <div class="team-member">
-            <img src="https://i.ibb.co/4ZH7fvdP/image.png" alt="Team Member 4">
-            <h3>TUYISENGE CHARLES</h3>
-            <p class="role">Communications and Support Manager😎</p>
-            <p>Tuyisenge Charles is a key professional responsible for company communication, advertising services, and reporting technical issues to the team, ensuring smooth operations and effective problem resolution.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="https://web.facebook.com/photo/?fbid=533405372377125&set=a.111441751240158">View more</a></p>
-          </div>
-          <div class="team-member">
-            <img src="https://i.ibb.co/0y1Gpgvv/image.png" alt="Team Member 5">
-            <h3>NIYONSHUTI Patrick</h3>
-            <p class="role">Graphic designer🎦📸</p>
-            <p>Patrick, a highly talented and respected Graphic Designer at Starfish, crafts innovative and visually stunning designs that elevate brand identities and drive impactful communication.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="https://web.facebook.com/niyonshuti.niyonshutipizzo">View more</a></p>
-          </div>
-          <div class="team-member">
-            <img src="https://i.ibb.co/nN83G5pP/image.png" alt="Team Member 6">
-            <h3>DUSABIMANA IGIHOZO ANSWER ♻️ <BR>
-            </BR></h3>
-            <p class="role">Finance and Administrative Officer</p>
-            <p>Dusabimana Igihozo serves as the Secretary and Cashier of the company, efficiently managing administrative tasks and financial operations with precision and integrity.</p>
-            <br>
-            <p><a  style="text-decoration: none;" href="https://www.instagram.com/the_answer_05/">View more</a></p>
-          </div>
+        <div class="service__card">
+          <img src="https://i.ibb.co/CKmbzDy2/image.png" alt="Irembo Services" class="service__img">
+          <h3 class="service__title">Irembo Services</h3>
+          <p class="service__description">Seamless Irembo services, helping you access government services online quickly and efficiently.</p>
         </div>
-  
-     
-      </div>
-    </div>
-  </section>
-  
 
+        <!-- Service 4 -->
+        <div class="service__card">
+          <img src="https://i.ibb.co/4wgz595F/image.png" alt="App Installation" class="service__img">
+          <h3 class="service__title">App Installation</h3>
+          <p class="service__description">Quick and easy phone app installation, ensuring your devices are up and running with the latest apps you need.</p>
+        </div>
 
-<!-- news & events -->
-<section id="news">
-    <h2 style="color: yellow;">News@EVENTS</h2>
-    <div class="service-cards">
-      <!-- YouTube Channel Section -->
-      <div style="margin-top: 20px; text-align: center;">
-        <p style="color: rgb(255, 255, 255); font-size: 16px; font-weight: bold;">💡 Check out our YouTube channel for detailed tutorials!</p>
-        <a href="https://www.youtube.com/@informationtechnologgy" target="_blank" style="color: rgb(8, 107, 39); font-size: 18px; text-decoration: underline; font-weight: bold;">
-          Visit Our YouTube Channel
-        </a>
-        <div style="margin-top: 10px;">
-          <img src="https://pfst.cf2.poecdn.net/base/image/f1f62c85f67c6c5239db6f326ec9137a9aadb8a2572e9a520cd60f43cddf3dfe?w=1024&h=768&pmaid=284545215" alt="YouTube Channel" style="max-width: 100%; height: auto; border: 2px solid yellow; border-radius: 10px;">
+        <!-- Service 5 -->
+        <div class="service__card">
+          <img src="https://salesqueen.org/wp-content/uploads/2022/05/graphic-designing-services.png" alt="Graphic Design" class="service__img">
+          <h3 class="service__title">Graphic Design</h3>
+          <p class="service__description">Creative and professional graphic design services, crafting unique visuals that elevate your brand identity and message.</p>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="service__card">
+          <img src="https://pfst.cf2.poecdn.net/base/image/2eaa668ebd3a03bdb1330288ea52533d8506fdab7650f97c3b9edc8a144662d1?w=1024&h=768" alt="Trading Signals" class="service__img">
+          <h3 class="service__title">Trading Signals</h3>
+          <p class="service__description">Professional and accurate trading signals that empower you to make confident decisions in forex, stocks, and crypto markets.</p>
         </div>
       </div>
-   <!-- Instagram Section -->
-<div style="margin-top: 20px; text-align: center;">
-  <p style="color: rgb(255, 255, 255); font-size: 16px; font-weight: bold;">💡 Check out our Instagram for more tips and updates!</p>
-  
-  <!-- Instagram Link Section -->
-  <a href="YOUR-INSTAGRAM-LINK-HERE" target="_blank" style="color: yellow; font-size: 18px; text-decoration: underline; font-weight: bold;">
-    Visit Our Instagram
-  </a>
-  
-  <!-- Instagram Image Section -->
-  <div style="margin-top: 10px;">
-    <img src="https://pfst.cf2.poecdn.net/base/image/6d100f039798429d1c1d3d8492a9c43e85160d348f6ca03a738221f2cad004b6?w=1024&h=768&pmaid=284557568" alt="Instagram Profile" style="max-width: 100%; height: auto; border: 2px solid yellow; border-radius: 10px;">
-  </div>
+    </section>
 
-  <p style="color: rgb(255, 255, 255); font-size: 14px;">🔔 Don’t forget to follow us for more tips!</p>
-</div>
+    <!-- Team Section -->
+    <section class="team section" id="team">
+      <h2 class="section-title">ABO DUKORANA 👷‍♀️</h2>
 
-  
-<!-- Starfish AI Bot Section -->
-<div style="margin-top: 30px; text-align: center;">
-  <p style="color: rgb(255, 255, 255); font-size: 16px; font-weight: bold;">🤖 Explore the future with our Starfish AI Bot!</p>
-  <a href="https://starfishaibot.vercel.app/" target="_blank" style="color: yellow; font-size: 18px; text-decoration: underline; font-weight: bold;">
-    STARFISH AI BOT🤖
-    
-  </a>
-  <div style="margin-top: 10px;">
-    <img src="https://pfst.cf2.poecdn.net/base/image/ba494826ee735489b2498e98d892b6e404708ec08694f8e6cdbfec5d28edf3b2?w=1024&h=768&pmaid=284530690" alt="Starfish AI Bot" style="max-width: 100%; height: auto; border: 2px solid yellow; border-radius: 10px;">
-  </div>
-</div>            
+      <div class="team__container container">
+        <!-- Team Member 1 -->
+        <div class="team__member">
+          <img src="https://i.ibb.co/RTgPSg0s/image.png" alt="Team Member 1" class="team__img">
+          <h3 class="team__name">DUFASHWENAYO Patrick</h3>
+          <p class="team__role">GENERAL-Director</p>
+          <p class="team__description">Owner and Director of Starfish, an IT expert specializing in web development, software design, and innovative digital solutions.</p>
+          <p class="team__contact">+250783568044</p>
+          <a href="https://www.instagram.com/du_fashwenayo/" class="profile-link" target="_blank">View Profile</a>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team__member">
+          <img src="https://i.ibb.co/C32GVMhX/image.png" alt="Team Member 2" class="team__img">
+          <h3 class="team__name">Ishimwe Nshuti Elyse</h3>
+          <p class="team__role">Web Developer - Full Stack</p>
+          <p class="team__description">A highly accomplished web developer renowned for designing cutting-edge, responsive, and impactful digital solutions that drive results.</p>
+          <a href="https://kejoo-portifolio.wuaze.com" class="profile-link" target="_blank">View Profile</a>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team__member">
+          <img src="https://i.ibb.co/Nc14RR9/image.png" alt="Team Member 3" class="team__img">
+          <h3 class="team__name">Iturushurukundo Hirwa Lionel</h3>
+          <p class="team__role">Hardware Maintenance Manager</p>
+          <p class="team__description">A highly skilled deputy chief who excels in field operations and computer hardware maintenance, ensuring top-tier performance for all systems.</p>
+          <a href="http://lio-tech.onrender.com/" class="profile-link" target="_blank">View Profile</a>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team__member">
+          <img src="https://i.ibb.co/4ZH7fvdP/image.png" alt="Team Member 4" class="team__img">
+          <h3 class="team__name">Tuyisenge Charles</h3>
+          <p class="team__role">Communications Manager</p>
+          <p class="team__description">Responsible for company communication, advertising services, and reporting technical issues to the team, ensuring smooth operations.</p>
+          <a href="https://web.facebook.com/photo/?fbid=533405372377125&set=a.111441751240158" class="profile-link" target="_blank">View Profile</a>
+        </div>
       </div>
-      <div class="service-card">
-        <img src="https://pfst.cf2.poecdn.net/base/image/2105a9ac6335f2585fd2e26dfc215ccc11b5be7c429c503b4eb383e3e081280d?w=1024&h=768&pmaid=284552979" alt="Service 1">
-        <h3 style="color: yellow;">CHECK OUT! OUR NEW AI ✔</h3>
-        <p style="color: rgb(255, 255, 255);font-weight: bold;">Starfish AI Bot 🤖 – your intelligent, responsive assistant designed to help with tasks, answer questions, and enhance your digital experience 🌟. Let Starfish AI Bot make your online interactions smoother and more efficient! 🚀</p>
+    </section>
+
+    <!-- News Section -->
+    <section class="news section" id="news">
+      <h2 class="section-title">News & Events</h2>
+
+      <div class="news__container container">
+        <!-- News Card 1 -->
+        <div class="news__card">
+          <div class="news__header">
+            <h3 class="news__title">YouTube Channel</h3>
+          </div>
+          <div class="news__content">
+            <img src="https://pfst.cf2.poecdn.net/base/image/f1f62c85f67c6c5239db6f326ec9137a9aadb8a2572e9a520cd60f43cddf3dfe?w=1024&h=768" alt="YouTube Channel" class="news__img">
+            <p class="news__text">Check out our YouTube channel for detailed tutorials on technology, computer maintenance, and more!</p>
+            <a href="https://www.youtube.com/@informationtechnologgy" class="btn-link" target="_blank">Visit Our Channel</a>
+          </div>
+        </div>
+
+        <!-- News Card 2 -->
+        <div class="news__card">
+          <div class="news__header">
+            <h3 class="news__title">Starfish AI Bot</h3>
+          </div>
+          <div class="news__content">
+            <img src="https://pfst.cf2.poecdn.net/base/image/ba494826ee735489b2498e98d892b6e404708ec08694f8e6cdbfec5d28edf3b2?w=1024&h=768" alt="Starfish AI Bot" class="news__img">
+            <p class="news__text">Introducing our intelligent, responsive assistant designed to help with tasks, answer questions, and enhance your digital experience.</p>
+            <a href="https://starfishaibot.vercel.app/" class="btn-link" target="_blank">Try Starfish AI Bot</a>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div class="news__card">
+          <div class="news__header">
+            <h3 class="news__title">Security Camera Services</h3>
+          </div>
+          <div class="news__content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ0w_HBqqbbr8VBmdrLVGy8KNEV0Lp25jhXQ&s" alt="Security Camera" class="news__img">
+            <p class="news__text">Professional security camera installation, offering tailored solutions to meet your security needs with 24/7 monitoring and crystal-clear video quality.</p>
+            <a href="#contact" class="btn-link">Learn More</a>
+          </div>
+        </div>
       </div>
-      <!-- Service 2 -->
-      <div class="service-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ0w_HBqqbbr8VBmdrLVGy8KNEV0Lp25jhXQ&s" alt="Service 2">
-        <h3 style="color: yellow;">SECURITY CAMERA📷</h3>
-        <p style="color: rgb(255, 255, 255);font-weight: bold;"> Starfish specializes in professional security camera installation 📹, offering tailored solutions to meet your security needs. We ensure your property is protected with state-of-the-art surveillance systems, providing 24/7 monitoring, crystal-clear video quality, and seamless integration with your smart devices. Whether it's for your home or business, our team delivers expert installation, reliable performance, and ongoing support, giving you peace of mind knowing your property is secure. With Starfish, your safety is our priority 🔒. Let us help you stay ahead with cutting-edge technology and dependable security solutions.🔒</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+      <h2 class="section-title">Contact Us</h2>
+
+      <div class="contact__container container">
+        <form action="#" class="contact__form" id="contact-form">
+          <div class="contact__form-group">
+            <label for="name" class="contact__label">Full Name</label>
+            <input type="text" id="name" name="name" class="contact__input" placeholder="Enter your name" required>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="email" class="contact__label">Email Address</label>
+            <input type="email" id="email" name="email" class="contact__input" placeholder="Enter your email" required>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="phone" class="contact__label">Phone Number</label>
+            <input type="tel" id="phone" name="phone" class="contact__input" placeholder="Enter your phone number" pattern="^\+?[0-9]{10,15}$" required>
+            <small class="contact__small">Enter a valid phone number with or without country code.</small>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="message" class="contact__label">Message</label>
+            <textarea id="message" name="message" class="contact__textarea" placeholder="Write your message here" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container container">
+      <div>
+        <div class="footer__logo">
+          <img src="https://i.ibb.co/5x5gLwKR/image.png" alt="Starfish Logo" class="footer__logo-img">
+          <h3 class="footer__logo-text">Starfish Group</h3>
+        </div>
+        <p class="footer__description">Innovative technology solutions for a digital world. Creating tomorrow's solutions today.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link"><i class='bx bxl-facebook'></i></a>
+          <a href="#" class="footer__social-link"><i class='bx bxl-instagram'></i></a>
+          <a href="#" class="footer__social-link"><i class='bx bxl-twitter'></i></a>
+          <a href="#" class="footer__social-link"><i class='bx bxl-youtube'></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Quick Links</h3>
+        <ul class="footer__links">
+          <li><a href="#home" class="footer__link">Home</a></li>
+          <li><a href="#services" class="footer__link">Services</a></li>
+          <li><a href="#team" class="footer__link">Team</a></li>
+          <li><a href="#news" class="footer__link">News</a></li>
+          <li><a href="#contact" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Contact Us</h3>
+        <ul class="footer__links">
+          <li class="footer__link">Muhanga, Rwanda</li>
+          <li class="footer__link">+250783568044</li>
+          <li class="footer__link">dufashwenayo@gmail.com</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer__title">Subscribe</h3>
+        <p class="footer__description">Subscribe to our newsletter for the latest news and updates.</p>
+        <form action="#" class="footer__form">
+          <input type="email" placeholder="Your email" class="footer__input">
+          <button type="submit" class="footer__button"><i class='bx bx-paper-plane'></i></button>
+        </form>
       </div>
     </div>
+
+    <p class="footer__copy">&copy; 2023 Starfish Group. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Toggle Menu
+    const navMenu = document.getElementById('nav-menu'),
+          navToggle = document.getElementById('nav-toggle'),
+          navLinks = document.querySelectorAll('.nav__link');
+
+    // Show menu
+    if(navToggle) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show-menu');
+      });
+    }
+
+    // Remove menu on link click
+    function linkAction() {
+      navMenu.classList.remove('show-menu');
+    }
+    navLinks.forEach(link => link.addEventListener('click', linkAction));
+
+    // Scroll sections active link
+    function scrollActive() {
+      const scrollY = window.pageYOffset;
+
+      navLinks.forEach(current => {
+        const sectionId = current.getAttribute('href').substring(1);
+        const section = document.getElementById(sectionId);
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 58;
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          current.classList.add('active-link');
+        } else {
+          current.classList.remove('active-link');
+        }
+      });
+    }
+    window.addEventListener('scroll', scrollActive);
+
+    // Change header background on scroll
+    function scrollHeader() {
+      const header = document.getElementById('header');
+      if(window.scrollY >= 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', scrollHeader);
+
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
     
-    <div class="service-cards">
-      <!-- Service 3 -->
-      <div class="service-card">
-        <img src="https://www.krasamo.com/wp-content/uploads/3236173-1024x1024.jpg" alt="Service 3">
-        <h3 style="color: yellow;">FIRMWARE WE DEVELOP!</h3>
-        <p style="color: rgb(255, 255, 255);font-weight: bold;">Starfish 🌟 isn’t just about hardware—we’re leaders in FIRMWARE DEVELOPMENT too! 🛠️⚡ We design and develop custom firmware solutions 🖥️🔗 that bring your devices to life, ensuring seamless functionality ⚙️, enhanced performance 🚀, and total reliability 🔒. From IoT devices 🌐📱 to embedded systems 🤖, our team delivers cutting-edge solutions 💡 tailored to your unique needs. With Starfish, you get innovation 🌟, efficiency ⚡, and precision 🎯—all in one package. Let us power your devices with firmware that works flawlessly, every time! 💻🔥
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
 
-          Thoughts? 🌟 🔧💻</p>
-      </div>
-      <!-- Service 4 -->
-      <div class="service-card">
-        <img src="https://t4.ftcdn.net/jpg/04/13/24/01/360_F_413240159_matOAhCtf0RaL6hBtRzAlVU4fGRZocOR.jpg" alt="Service 4">
-        <h3 style="color: yellow;">COMPUTER REFURBLISHMENT</h3>
-        <p style="color: rgb(255, 255, 255);font-weight: bold;">Starfish 🌟 specializes in expert computer refurbishment 🖥️✨, giving old systems a new lease on life with enhanced performance 🚀 and improved functionality ⚙️. We upgrade hardware 🔧, optimize software 💻, and ensure your devices run smoothly 🔥. Whether it’s a personal computer 🏠, laptop 💼, or office workstation 🏢, we focus on sustainability 🌿♻️, reducing e-waste 🌍 while saving you money 💰. Don’t toss it in the trash 🗑️—refurbish it instead! Let Starfish 🌟 help you create a greener, smarter future 🌈.♻️.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://pfst.cf2.poecdn.net/base/image/852c74f568660cbf32a46bcb193228dcca2668439102858d3ff23d4e9dbc74aa?w=1024&h=768&pmaid=283767482" alt="Service 1">
-        <h3 style="color: yellow;">SolidWorks design services</h3>
-        <p style="color: rgb(255, 255, 255);font-weight: bold;">At Starfish 🌟, we offer expert SolidWorks design services 🖥️✏️ to bring your ideas to life with precision and innovation 🎯. Whether it’s 3D modeling 📐, CAD drafting 📂, or product design 🚀, we specialize in creating customized solutions that meet your unique requirements. From concept sketches ✍️ to fully functional prototypes 🛠️, our designs are crafted for efficiency, durability, and style.
-
-          We work across industries 🏗️🔬, delivering high-quality designs that ensure accuracy, scalability, and optimal performance. With Starfish 🌟, you’ll have the tools to visualize, simulate, and perfect your products before they hit production ⚙️✨. Let’s turn your vision into reality with cutting-edge SolidWorks expertise! 💡🔩</p>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <!-- Contact Us Section -->
-<section id="contact-us">
-    <h2 style="color: yellow;">Contact Us</h2>
-    <form id="contact-form" class="contact-form">
-        <!-- Phone Number -->
-        <div class="form-group">
-            <label for="phone" style="color: yellow;">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="^\+?[0-9]{10,15}$" required>
-            <small style="color: #fff;">(Enter a valid phone number with or without country code. Minimum 10 digits, Maximum 15 digits)</small>
-        </div>
-    
-        <!-- Email -->
-        <div class="form-group">
-            <label for="email" style="color: yellow;">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-    
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if(contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-            </select>
-        </div>
-    
-        <!-- Message Area -->
-        <div class="form-group">
-            <label for="message" style="color: yellow;">Message:</label>
-            <textarea id="message" name="message" placeholder="Write your message here" rows="5" required></textarea>
-        </div>
-    
-        <!-- Submit Button -->
-        <div class="form-group">
-            <button type="submit" class="submit-btn">Send Message</button>
-        </div>
-    </form>
-    
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your public key
-        emailjs.init(service_csb9y9c);
-    
-        // Handle form submission
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-    
-            // Get form values
-            var form = event.target;
-            var formData = new FormData(form);
-    
-            // Send the email using EmailJS service
-            emailjs.sendForm("service_csb9y9c", "template_hrbic6b", formData)
-                .then(function(response) {
-                    alert("Your message has been sent!");
-                })
-                .catch(function(error) {
-                    alert("Error sending message: " + error);
-                });
-        });
-    </script>
-    
-</section>
-
-  <!-- Add JavaScript -->
-  <script src="script.js"></script>
+        // Show success message
+        const formData = new FormData(this);
+        const message = document.createElement('div');
+        message.classList.add('success-message');
+        message.innerHTML = `
+          <div style="background: var(--gradient-glow); padding: 1.5rem; border-radius: 10px; text-align: center; margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--text-light);">Message Sent Successfully!</h3>
+            <p style="color: var(--text-light);">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+          </div>
+        `;
+        
+        this.reset();
+        this.style.display = 'none';
+        this.parentElement.appendChild(message);
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          message.remove();
+          this.style.display = 'block';
+        }, 5000);
+      });
+    }
+  </script>
 </body>
 </html>
